@@ -4,7 +4,10 @@ const path = require('path');
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://13.53.130.105:3000',
+    credentials: true,
+}));
 
 app.get('/files/:selectedProject/AssemblyFiles/QRCodes/:AssemblyID', (req, res) => {
     console.log('Request for QR code received', req.params.selectedProject, req.params.AssemblyID);

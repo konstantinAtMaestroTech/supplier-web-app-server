@@ -13,7 +13,7 @@ password = "321553R2d2c3po!"
 async function fetchSupplier(tableName) {
 
     let connection = mysql.createConnection({
-        host: "16.171.137.163",
+        host: "13.60.18.89",
         user: user,
         password: password,
         database: dataBaseName
@@ -35,7 +35,7 @@ async function fetchSupplier(tableName) {
 async function fetchProjects(tableName, selectedSupplier) {
 
     let connection = mysql.createConnection({
-        host: "16.171.137.163",
+        host: "13.60.18.89",
         user: user,
         password: password,
         database: dataBaseName
@@ -58,7 +58,7 @@ async function fetchProjects(tableName, selectedSupplier) {
 async function fetchElements(tableName, selectedSupplier, selectedProject) {
 
     let connection = mysql.createConnection({
-        host: "16.171.137.163",
+        host: "13.60.18.89",
         user: user,
         password: password,
         database: dataBaseName

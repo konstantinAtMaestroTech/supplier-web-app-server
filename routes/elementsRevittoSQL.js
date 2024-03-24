@@ -43,7 +43,7 @@ router.post('/', async (req, res, next) => {
     console.log('The serever has received SQL table generation request', req.body);
 
     let connection = mysql.createConnection({
-        host: "16.171.137.163",
+        host: "13.60.18.89",
         user: req.headers.user,
         password: req.headers.password,
         database: req.headers.database

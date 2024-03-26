@@ -5,7 +5,7 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(cors({
-    origin: ['http://13.53.130.105:3000', 'http://13.53.130.105:3001', 'http://13.53.130.105', 'https://supplier-web-app.maestrotest.info','http://localhost:3000'],
+    origin: ['http://13.53.130.105:3000', 'http://13.53.130.105:3001', 'http://13.53.130.105', 'https://supplier-web-app.maestrotest.info', 'https://assembly-web-app.maestrotest.info','http://localhost:3000'],
     credentials: true,
 }));
 

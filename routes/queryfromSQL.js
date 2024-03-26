@@ -93,6 +93,29 @@ async function fetchElements(tableName, selectedSupplier, selectedProject) {
     });
 };
 
+async function fetchAssemblyID(tableName, AssemblyID) { // This works only for the current arrengement of the DB and not functional in the case of multiple projects
+
+    let connection = mysql.createConnection({
+        host: "13.60.18.89",
+        user: user,
+        password: password,
+        database: dataBaseName
+    });
+
+    return new Promise((resolve, reject) => {
+        connection.connect(function(err) {
+            if (err) reject(err);
+            console.log("Connected!");
+            connection.query( `SELECT UniqueID FROM ?? WHERE AssemblyID = ?`, [tableName, AssemblyID], (err, result) => {
+                if (err) reject(err);
+                console.log('Query results: ', result);
+                resolve(result);
+                connection.end();
+            });
+        });
+    });
+};
+
 router.get('/producers', async (req, res, next) => {
     let tableName = "Producers";
     const suppliers = await fetchSupplier(tableName);
@@ -109,6 +132,12 @@ router.get('/projects', async (req, res, next) => {
 router.get('/elements', async (req, res, next) => {
     let tableName = "Elements";
     const elements = await fetchElements(tableName, req.headers['selectedsupplier'], req.headers['selectedproject']);
+    res.json({data: elements});
+});
+
+router.get('/AssemblyID', async (req, res, next) => {
+    let tableName = "Elements";
+    const elements = await fetchAssemblyID(tableName, req.headers['selectedassemblyid']);
     res.json({data: elements});
 });
 
